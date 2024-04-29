@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classmates List</title>
+</head>
+<body>
+<h1>Classmates in {{ course.name }}</h1>
+<p>Number of Females: {{ gender_counts.get('Female', 0) }}</p>
+<p>Number of Males: {{ gender_counts.get('Male', 0) }}</p>
+
+{% if students %}
+    <ul>
+        {% for student in students %}
+            <li>{{ student.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No students are currently enrolled in this course.</p>
+{% endif %}
+<a href="/classmates_filter">Back to Course Selection</a>
+</body>
+</html>

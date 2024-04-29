@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CS348 Project</title>
+</head>
+<body>
+    <h1>CS348 Project</h1>
+    <!-- Existing button to go to the student filter page -->
+    <a href="/filter"><button>Go to Student Filter Page</button></a>
+    <br/>
+
+    <!-- New button to go to the classmates filter page -->
+    <a href="/classmates_filter"><button>Go to Classmates Filter Page</button></a>
+    <br/>
+
+    <!-- Student List -->
+    {% for s in students %}
+        <h4>
+            <li>
+                {{ s.name }} <a href="/update/{{ s.id }}" class="btn btn-outline-secondary btn-sm">Update</a>
+            </li>
+            {% for i in s.courses %}
+                {{ i.name }}
+            {% endfor %}
+        </h4>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select a Course</title>
+</head>
+<body>
+<h1>Select a Course to Find Classmates</h1>
+<form method="post">
+    <select name="course_id">
+        <option value="">--Select a Course--</option>
+        {% for course in courses %}
+        <option value="{{ course.id }}">{{ course.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Find Classmates">
+</form>
+<a href="/" class="btn btn-primary">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter Results</title>
+</head>
+<body>
+<h1>Filter Results</h1>
+
+<!-- Display common courses and their average credits -->
+{% if common_courses %}
+    <h2>Common Courses</h2>
+    <ul>
+        {% for course in common_courses %}
+            <li>{{ course.name }} - Taught by {{ course.teacher }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Average Credits for Shared Courses: {{ average_credits | round(1) }} credits</strong></p>
+{% else %}
+    <p>No common courses found for the selected students.</p>
+{% endif %}
+
+<!-- Display classmates for the selected course -->
+{% if classmates %}
+    <h2>Classmates in {{ selected_course.name }}</h2>
+    <ul>
+        {% for student in classmates %}
+            <li>{{ student.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No classmates found for the selected course, or no course was selected.</p>
+{% endif %}
+
+<a href="/filter">Back to Filter Options</a>
+</body>
+</html>
